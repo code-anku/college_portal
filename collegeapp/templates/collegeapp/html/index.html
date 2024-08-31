@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+{%include 'collegeapp/common/commoncss.html'%}
+
+
+</head>
+<body>
+<!-- <body> bgcolor="pink" style="margin: 0px;"> -->
+    <div class="container-fluid bg-info">
+        <h1 class="text-danger" style="margin: 0px;text-align: center;">CollegePortal Welcomes You</h1>
+    </div>
+     <!-- <div style="width: 100%;height: 60px;background-color: violet;">
+        <h2 style="color: maroon;font-family: Cooper;text-align: center;margin-top: 0px;"></h2>
+    
+    </div> 
+    <div style="width: 20%;height: 1000px;background-color: lightgrey;float: left;"></div>
+    <div style="width: 80%;height: 1000px;background-color: slateblue;float: right;"></div>
+    <div style="width: 100%;height: 40px;clear: both;background-color: red;"></div> -->
+    {% include 'collegeapp/common/commonheader.html'%}
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'collegeapp/images/srmu1.jpg'%}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'collegeapp/images/srmu.jpg'%}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'collegeapp/images/pic1.jpg'%}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+    
+        <marquee behavior="alternate" scrollamount="10" scrolldelay="100" onmouseover="this.stop()" onmouseout="this.start()">
+          {%for notice_obj in notice_key %}
+          <!-- <h3>{{notice_obj.notice_contents}} {{notice_obj.date}}</h3>
+           -->
+           <span style="color: red;font-size: 20px;">{{notice_obj.notice_contents}}&nbsp;&nbsp;&nbsp;</span>
+          {%endfor%}
+          </marquee>
+          <div class="container">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for e in event_key%}
+          
+            <div class="col">
+              <div class="card h-100">
+                <img src="/media/{{e.event_pic}}" class="card-img-top"
+                  alt="Event pictures" />
+                <div class="card-body">
+                  <h5 class="card-title">Event Name: {{e.event_name}}</h5>
+                  <h5 class="card-title">VenueName: {{e.event_venue}}</h5>
+                  <h5 class="card-title">date of venue: {{e.event_date}}</h5>
+                  
+                  <p class="card-text">
+                  {{e.event_description}}
+                   
+                  </p>
+                </div>
+              </div>
+            </div>
+           
+          {%endfor%}
+        </div>
+        </div>
+    
+          {%include 'collegeapp/common/commonfooter.html'%} 
+    {%include 'collegeapp/common/commonjs.html'%}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'collegeapp/student/student_base.html'%}
+{%block title%}
+Student Home Page
+{%endblock%}
+{%block style%}
+
+p{color:red;font-size:20px;font-family:arial}
+{%endblock%}
+
+{%block content%}
+{%if messages%}
+    {%for m in messages%}
+<!-- <h2>{{m}}</h2> -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    {%endfor%}
+
+    {%endif%}
+<div class="container-fluid bg-success">
+    <h2 style="text-align: center;">Student Home Page</h2>
+
+</div>
+<!-- <div style="width: 20%;height: 200px;float: left;margin-top: 30px;margin-left: 100px;">
+
+    <img class="card-img-top" src="/media/{{student_data.student_pic}}" style="width: 100%;height: 100%">
+    </div> -->
+
+    <div class="card" style= "width:50%;height:50%;background-color:brown;margin-left:5%;margin-top:5%;float: left ;"> 
+        <img class="card-img-top" src="/media/{{student_data.student_pic}}" style="width: 50%;height: 100%;margin-left: 35%;">
+    <div class="card-body">
+   
+        <h2>Your Profile details</h2>
+        <p class="card-text">Name:{{student_data.name}}</p>
+        <p class="card-text">Email:{{student_data.email}}</p>
+        <p class="card-text">Phone:{{student_data.phone}}</p>
+        <p class="card-text">Gender:{{student_data.gender}}</p>
+        <p class="card-text">Description:{{student_data.description}}</p>
+        <p class="card-text">Address:{{student_data.address}}</p>
+        
+   
+        </div>
+        </div>
+        
+{%endblock%}

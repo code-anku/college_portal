@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactus</title>
+    {%include 'collegeapp/common/commoncss.html'%} 
+</head>
+<body>
+    
+    {% include 'collegeapp/common/commonheader.html'%}
+    {%if messages%}
+    {%for m in messages%}
+<!-- <h2>{{m}}</h2> -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    {%endfor%}
+
+    {%endif%}
+    <h2>This is contactus page</h2>
+      <!-- <div class="row bg-info">
+<div class="col-4 bg-success">
+    <h2>4columns</h2>
+</div>
+<div class="col-6 bg-danger">
+    <h2> 6columns</h2>
+
+</div>
+    </div>   -->
+    <form method="post" action="/contact/" class="needs-validation" novalidate>
+        {% csrf_token %}
+    <div class="row">
+        <div class="col-6 "style="margin-left:50px;">
+            <img src="{% static 'collegeapp/images/pic1.jpg'%}" class="div w-75" style="margin-top: 70px;margin-left: 100px;;">
+
+
+        </div>
+        <form method="post" action="/contact/">
+        <div class="col-4" style="border-style: solid;">
+            
+<div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+<input type="text" name="username" placeholder="Enter your name" class="form-control" required>
+<div class="invalid-feedback">
+    Please provide your name.
+  </div>
+</div>
+<div class="mb-3">
+    <label for="Email" class="form-label">Your Email</label>
+<input type="email" name="usermail" placeholder="Enter your email" class="form-control" required>
+<div class="invalid-feedback">
+    Please provide your email.
+  </div>
+</div>
+<div class="mb-3">
+    
+    <label for="phone" class="form-label">Your phone</label><i class='fas fa-phone-alt'></i>
+<input type="number" name="userphone" placeholder="Enter your contact number" class="form-control" required>
+<div class="invalid-feedback">
+    Please provide your phone number.
+  </div>
+</div>
+<div class="mb-3">
+    <label for="query" class="form-label">Your query</label>
+<textarea name="userquery" placeholder="Enter your query" class="form-control" required></textarea>
+<div class="invalid-feedback">
+    Please give your query.
+  </div>
+</div>
+<div class="text-center">
+    <button class="btn btn-primary">Submit</button>
+
+
+</div>
+
+        </div>
+
+    </div>
+
+</form>
+
+
+
+<script src="{% static 'collegeapp/js/validation.js'%}"></script>
+
+
+    {%include 'collegeapp/common/commonjs.html'%} 
+</body>
+</html>

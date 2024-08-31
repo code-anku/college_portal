@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    {%include 'collegeapp/common/commoncss.html'%} 
+</head>
+<body>
+    
+    {% include 'collegeapp/common/commonheader.html'%}
+    
+    
+        
+<h1 style="text-align: center">Our Courses</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CourseName</th>
+            <th scope="col">Fees</th>
+            <th scope="col">Duration</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        {% for c in course_key%}
+        <tr>
+    <td>{{c.course_name}}</td>
+    <td>{{c.course_fees}}</td>
+    <td>{{c.course_duration}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+    
+
+    {%include 'collegeapp/common/commonjs.html'%} 
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    {% include 'collegeapp/common/commoncss.html'%}
+</head>
+<body>
+    {%include 'collegeapp/common/commonheader.html'%}
+    
+    {%if messages%}
+    {%for m in messages%}
+<!-- <h2>{{m}}</h2> -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    {%endfor%}
+
+    {%endif%}
+    <form method="post" action="/registration/" class="needs-validation" novalidate>
+        {% csrf_token %}
+    <div class="col-4 " style="border-style: solid;margin-left:500px;margin-top: 30px;"><h1 style="text-align:center;color:  blue;">Registration Form</h1>
+        <div class="mb-3"> 
+            <i class='fas fa-user-alt'></i><label for="ID" class="form-label"><b>ID</b></label>
+<input type="text" name="con_ID" placeholder="enter your userID" class="form-control" required>
+<!-- <div class="invalid-registration">
+    Please provide your ID.
+  </div> -->
+</div>
+<div class="mb-3">
+    <i class='fas fa-key'></i><label for="password" class="form-label"><b>Password</b></label>
+<input type="password" name="con_password" placeholder="Enter your password" class="form-control" required>
+<!-- <div class="invalid-registration">
+    Please provide your password.
+  </div> -->
+</div>
+<div class="mb-3">
+            <label for="name" class="form-label"><b>Consultancy name</b></label>
+        <input type="text" name="c_name" placeholder="Enter name" class="form-control" required>
+        <!-- <div class="invalid-registration">
+            Please provide your name.
+          </div> -->
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label"><b>Email</b></label>
+        <input type="email" name="c_mail" placeholder="Enter your email" class="form-control" required>
+        <!-- <div class="invalid-registration">
+            Please provide your email.
+          </div> -->
+        </div>
+         <div class="mb-3">
+            
+            <label for="phone" class="form-label"><b>Phone</b></label>
+        <input type="number" name="c_phone" placeholder="Enter your contact number" class="form-control" required>
+        <!-- <div class="invalid-registration">
+            Please provide your contact number.
+          </div> -->
+        </div> 
+        
+        <div class="mb-3">
+            <label for="description" class="form-label"><b>Description</b></label>
+        <textarea name="description" placeholder="Enter your description" class="form-control" required></textarea>
+        <!-- <div class="invalid-registration">
+            Please provide your description.
+          </div> -->
+        </div>
+        
+        <div class="text-center" style="margin-top: 10px;margin-bottom: 10px;">
+            <button class="btn btn-success">Submit</button>
+        
+        
+        </div>
+        </div>
+        
+        </form>
+        <script src="{% static 'collegeapp/js/validation.js'%}"></script>
+
+
+    {% include 'collegeapp/common/commonjs.html'%} 
+    
+</body>
+</html>

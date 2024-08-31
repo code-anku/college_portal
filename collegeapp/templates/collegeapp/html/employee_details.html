@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee details</title>
+    {%include 'collegeapp/common/commoncss.html'%}
+</head>
+<body>
+    {% include 'collegeapp/common/commonheader.html'%}
+    <h1 style="text-align: center">Our Staff</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phone</th>
+            <th scope="col">desination</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+        {% for e in employee_key%}
+        <tr>
+          <td><img src="/media/{{e.employee_pic}}" style="width: 100px;height: 100px;"></td>
+    <td>{{e.name}}</td>
+    <td>{{e.email}}</td>
+    <td>{{e.phone}}</td>
+    <td>{{e.designation}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+    {%include 'collegeapp/common/commonjs.html'%}
+</body>
+</html>

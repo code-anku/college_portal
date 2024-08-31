@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    {%include 'collegeapp/common/commoncss.html'%} 
+</head>
+<body>
+    
+    {% include 'collegeapp/common/commonheader.html'%}
+    {%if messages%}
+    {%for m in messages%}
+<!-- <h2>{{m}}</h2> -->
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    {%endfor%}
+
+    {%endif%}
+    <form method="post" action="/feedback/">
+        {% csrf_token %}
+    <div class="col-4 " style="border-style: solid;margin-left:500px;margin-top: 50px;">
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+        <input type="text" name="username" placeholder="Enter your name" class="form-control" required>
+        
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Your Email</label>
+        <input type="email" name="usermail" placeholder="Enter your email" class="form-control" required>
+        
+        </div>
+        <!-- <div class="mb-3">
+            
+            <label for="phone" class="form-label">Your phone</label>
+        <input type="number" name="userphone" placeholder="Enter your contact number" class="form-control" required>
+        
+        </div> -->
+        <div class="mb-3">
+            <label for="feedback" class="form-label">Your feedback</label>
+        <textarea name="userfeedback" placeholder="Enter your feedback" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="Rating" class="form-label">Your Rating</label><i class='fas fa-star'></i>
+            <div class="rating">
+                <select id="rating select" name="rating" class="form-control" required>
+        <option value="" selected disabled>Select rating</option>
+<option values="1">*</option>
+<option values="2">**</option>
+<option values="3">***</option>
+<option values="4">****</option>
+<option values="5">*****</option>
+                </select>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="text-center">
+            <button class="btn btn-primary">Submit</button>
+        
+        
+        </div>
+        
+        
+                </div>
+</form>
+
+    {%include 'collegeapp/common/commonjs.html'%}
+</body>
+</html>

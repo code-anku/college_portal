@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+    {%include 'collegeapp/common/commoncss.html'%}
+    
+</head>
+<body>
+    {% include 'collegeapp/common/commonheader.html'%}
+     {%if messages%}
+    {%for m in messages%}
+ <h2>{{m}}</h2> 
+ <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    {%endfor%}
+
+    {%endif%} 
+    <div class="row">
+        <div class="col-6 ">
+            <form method="post" action="/login/">
+                {%csrf_token%}
+            <img src="{% static 'collegeapp/images/pic2.jpg'%}" class="div w-50" style="margin-top: 70px;margin-left: 200px;">
+
+
+        </div>
+        <!-- <form method="post" action="/login/">
+            {%csrf_token%} -->
+        <div class="col-4 " style="border-style: solid; margin-top: 70px;">
+<div class="mb-3">
+    <i class='fas fa-user-alt'></i><label for="ID" class="form-label">UserID</label>
+<input type="text" name="userID" placeholder="enter your userID" class="form-control" required>
+
+</div>
+<div class="mb-3">
+    <i class='fas fa-key'></i><label for="password" class="form-label">Password</label>
+<input type="password" name="userpassword" placeholder="Enter your password" class="form-control" required>
+
+
+</div>
+
+    <button class="btn btn-primary">Submit</button>
+
+
+</div>
+
+
+        </div>
+
+    </div>
+</form>
+    
+    {%include 'collegeapp/common/commonjs.html'%} 
+</body>
+</html>
